@@ -1,92 +1,39 @@
 ﻿
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <title>chat room demo</title>
-    <link rel="stylesheet" type="text/css" href="css/main.css">
     <script src="https://code.jquery.com/jquery-3.3.0.min.js"></script>
     <script src="bmob-min.js"></script>
 </head>
+
 <body>
-    <h1>chat room demo</h1>
-    <div id="data"></div>
-    <div>
-        昵称<input type="text" id="name"/>
-        内容<input type="text" id="content"/>
-        <button name="发送" id="send">发送
-    </div>  
+    <p id = "total_times">访问次数:···</p>
+</body>
 
-  <script type="text/javascript">
+<script type="text/javascript">
 
-    function sendMsg(){
+    // 服务器
+    Bmob.initialize("a67cabf10e05d0961b5c120714254d33", "922e996f0f6027d4a98d53d0db8855b6");
 
-        var name= $("#name").val();
-        var content = $("#content").val();
-
-        if($.trim(name)==""){
-            alert("昵称不能为空！");
-            return;
+    // 获取访问人数数据并修改
+    var Record = Bmob.Object.extend("Record");
+    var query = new Bmob.Query(Record);
+    query.first({
+        success: function(object) {
+            // 查询成功
+            object.set("total_times", object.get("total_times")+1);
+            object.save();
+            $("#total_times").text("访问次数: " + object.get("total_times"));
+        },
+        error: function(error) {
+            alert("查询失败: " + error.code + " " + error.message);
         }
-
-         if($.trim(content)==""){
-            alert("内容不能为空！");
-            return;
-        }       
-
-        var Chat = Bmob.Object.extend("Chat");
-        var chat = new Chat();
-        chat.set("name", $("#name").val());
-        chat.set("content", $("#content").val());
-        chat.save(null, {
-          success: function(object) {           
-          },
-          error: function(model, error) {            
-          }
-        });     
-    }
-
-    $("#send").click(function(){
-
-        sendMsg();
     });
 
-    //服务器
-    BmobSocketIo.initialize("e9978deb922a3ee549d8ca3266edff09");
-    Bmob.initialize("e9978deb922a3ee549d8ca3266edff09", "db703f75fad13d945031b0500d366408");
-    
-   //初始连接socket.io服务器后，需要监听的事件都写在这个函数内
-    BmobSocketIo.onInitListen = function() {
-      //订阅GameScore表的数据更新事件
-      BmobSocketIo.updateTable("Chat");     
-    };
 
-      //监听服务器返回的更新表的数据
-   BmobSocketIo.onUpdateTable = function(tablename,data) {   
-     
-     if( tablename=="Chat" ) {
-        // alert(tablename);
-        var content=$("#data");
-        var p = '<p><span style="color:red;">' + data.name+'</span>  '+'<span style="color:green;">'+ data.createdAt+'</span>  '+ ' :<br/> '+data.content+'</p><br/><br/>';
-        content.html(content.html()+p);
-     }
-   };
+</script>
 
-  //通过“回车”提交聊天信息
-   $('#name').keydown(function(e) {
-    if (e.keyCode === 13) {
-      sendMsg();
-    }
-  });
-
-  //通过“回车”提交聊天信息
-   $('#content').keydown(function(e) {
-    if (e.keyCode === 13) {
-      sendMsg();
-    }
-  });
-  </script>
-
-
-</body>
 </html>
