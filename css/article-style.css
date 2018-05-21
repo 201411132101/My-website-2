@@ -10,6 +10,13 @@ html, body {
     margin: 50px auto;
     padding: 50px;
 }
+.markdown-body p{
+    text-indent: 2em;
+}
+.markdown-body h1{
+    text-align: center;
+}
+
 
 @media (max-width: 767px) {
     .markdown-body {
