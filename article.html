@@ -8,15 +8,17 @@
 
     <link rel="shortcut icon" href="favicon.ico">
 
-    <!--css-->
+    <!-- css -->
     <link href="css/github-markdown.css" rel="stylesheet" type="text/css" />
     <link href="css/article-style.css" rel="stylesheet" type="text/css" />
 
-    <!--javascript-->
+    <!-- javascript -->
     <script src="javascript/jquery-3.3.0.min.js"></script>
     <script src="javascript/bmob-min.js"></script>
-    <script src="javascript/marked.min.js"></script>
-    <script src="MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    <!-- plug-in -->
+    <script src="plug-in/marked/marked.min.js"></script>
+    <script src="plug-in/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">
         MathJax.Hub.Config({
           tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
@@ -41,10 +43,15 @@
     </article>
 </body>
 
+<!-- markdown to html -->
 <script>
-    console.log($("#content").text());
-    console.log(marked($("#content").text()) + marked('### Unicorns\n\nAll the things $ a + b $.'));
-    $("#test").html(marked($("#content").html()) + marked('# Unicorns\n\nAll the things $ a + b $.'));
+    var acen_edit = ace.edit('mdeditor');
+    acen_edit.setTheme('ace/theme/chrome');
+    acen_edit.getSession().setMode('ace/mode/markdown');
+    acen_edit.renderer.setShowPrintMargin(false);
+    $("#mdeditor").keyup(function() {
+        $("#preview").html(marked(acen_edit.getValue()));
+    });
 </script>
 
 </html>
