@@ -4,43 +4,47 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-    <title> 写博客 </title>
+    <title> loading </title>
 
     <link rel="shortcut icon" href="favicon.ico">
 
     <!--css-->
     <link href="css/github-markdown.css" rel="stylesheet" type="text/css" />
-    <style>
-        .markdown-body {
-            box-sizing: border-box;
-            min-width: 200px;
-            max-width: 980px;
-            margin: 0 auto;
-            padding: 45px;
-        }
-
-        @media (max-width: 767px) {
-            .markdown-body {
-                padding: 15px;
-            }
-        }
-    </style>
+    <link href="css/article-style.css" rel="stylesheet" type="text/css" />
 
     <!--javascript-->
-    <script src="MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script src="javascript/jquery-3.3.0.min.js"></script>
     <script src="javascript/bmob-min.js"></script>
     <script src="javascript/marked.min.js"></script>
+    <script src="MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+        });
+    </script>
 </head>
 
 <body>
     <div id="content">
-        <article class="markdown-body">
-            <h1>Unicorns</h1>
-            <p>All the things</p>
-            <p>$$a+b$$</p>
-        </article>
+        #欢迎使用 Cmd Markdown 编辑阅读器
+        ##s
+        ------
+
+        我们理解您需要更便捷更高效的工具记录思想，整理笔记、知识，并将其中承载的价值传播给他人，
+        **Cmd Markdown** 是我们给出的答案 —— 我们为记录思想和分享知识提供更专业的工具。
+        您可以使用 Cmd Markdown：
     </div>
+    <article id="test" class="markdown-body">
+        <h1>#Unicorns</h1>
+        <p>All the things</p>
+        <p>$a+b$</p>
+    </article>
 </body>
+
+<script>
+    console.log($("#content").text());
+    console.log(marked($("#content").text()) + marked('### Unicorns\n\nAll the things $ a + b $.'));
+    $("#test").html(marked($("#content").html()) + marked('# Unicorns\n\nAll the things $ a + b $.'));
+</script>
 
 </html>
