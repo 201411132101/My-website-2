@@ -2,94 +2,132 @@ html, body {
     margin: 0;
     padding: 0;
     height: 100%;
+    width: 100%;
     font-size: 15px;
-    background-color: #E0FFFF;
+    background-color: #F6F4EC;
+    position: absolute;
+}
+
+a:link, a:visited, a:hover, a:active {
+    text-decoration:none;
+    color: #6633FF;
 }
 
 #container {
-    width: 100%;
+    width: 80%;
+    margin: 0 auto;
     min-height: 100%;
     position: relative;
     padding-bottom: 100px;
     box-sizing: border-box;
 }
 
-/* 页眉 */
+
+
+/*                       页眉                       */
 #header {
-    height: 50px;
+    height: 160px;
     position: relative;
     margin: 0 0 10px 0;
+    border-bottom: 2px solid #c6cbd1;
 }
 #header-left {
     position: absolute;
-    left: 15%;
-    bottom: 10px;
-    font-size: 150%
+    left: 0;
+    bottom: 30px;
 }
 #header-right {
     position: absolute;
-    right: 15%;
+    height: 32px;
+    right: 0;
     bottom: 10px;
 }
 
-/* 文章内容 */
+#return {
+    position: relative;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    height: 32px;
+    line-height: 32px;
+    float: left;
+    padding: 0 12px;
+    margin: 0 5px 0 0;
+}
+
+/* 搜索 */
+#search {
+    position: relative;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    float: left;
+}
+#search-input {
+    position: relative;
+    float: left;
+    height: 30px;
+    padding: 0 12px;
+    width: 180px;
+    background: rgba(0, 0, 0, 0);
+    border: none;
+    outline: none;
+}
+#search-button {
+    position: relative;
+    width: 32px;
+    height: 32px;
+    border: none;
+    cursor: pointer;
+    display: block;
+    background: url(../images/blue.png);
+    margin: 0;
+    padding: 0;
+    outline: none;
+}
+#search-button:hover {
+    background: url(../images/pink.png);
+}
+
+
+
+/*                       中间部分                       */
+#middle {
+    width: 100%;
+}
+
+/* 文章列表 */
 #article {
     position: relative;
     float: left;
-    width: 70%;
+    width: 75%;
 }
 
 /* 右侧导航 */
 #rightbar {
     position: relative;
     float: left;
-    width: 30%;
+    width: 24%;
+    border-left: 2px solid #c6cbd1;
 }
 
-/* 页脚 */
+/* 让子div撑开父div */
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+
+
+/*                       页脚                       */
 #footer {
-    text-align: center;
     position: absolute;
+    text-align: center;
     bottom: 0;
     width: 100%;
-    height: 50px;
+    height: 60px;
 }
 
-/* button */
-button {
-    background-color: #d7e5f5;
-    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #d7e5f5), color-stop(100%, #cbe0f5));
-    background-image: -webkit-linear-gradient(top, #d7e5f5, #cbe0f5);
-    background-image: -moz-linear-gradient(top, #d7e5f5, #cbe0f5);
-    background-image: -ms-linear-gradient(top, #d7e5f5, #cbe0f5);
-    background-image: -o-linear-gradient(top, #d7e5f5, #cbe0f5);
-    background-image: linear-gradient(top, #d7e5f5, #cbe0f5);
-    border-top: 1px solid #abbbcc;
-    border-left: 1px solid #a7b6c7;
-    border-bottom: 1px solid #a1afbf;
-    border-right: 1px solid #a7b6c7;
-    border-radius: 12px;
-    -webkit-box-shadow: inset 0 1px 0 0 white;
-    box-shadow: inset 0 1px 0 0 white;
-    color: #1a3e66;
-    font: normal 11px/1 "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
-    padding: 6px 20px 7px 20px;
-    text-align: center;
-    text-shadow: 0 1px 1px #fff;
-}
-button:hover {
-    background-color: #ccd9e8;
-    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ccd9e8), color-stop(100%, #c1d4e8));
-    background-image: -webkit-linear-gradient(top, #ccd9e8, #c1d4e8);
-    background-image: -moz-linear-gradient(top, #ccd9e8, #c1d4e8);
-    background-image: -ms-linear-gradient(top, #ccd9e8, #c1d4e8);
-    background-image: -o-linear-gradient(top, #ccd9e8, #c1d4e8);
-    background-image: linear-gradient(top, #ccd9e8, #c1d4e8);
-    border-top: 1px solid #a1afbf;
-    border-left: 1px solid #9caaba;
-    border-bottom: 1px solid #96a3b3;
-    border-right: 1px solid #9caaba;
-    box-shadow: inset 0 1px 0 0 #f2f2f2;
-    color: #163659;
-    cursor: pointer;
-}

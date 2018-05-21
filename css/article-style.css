@@ -1,21 +1,20 @@
 html, body {
-    background-color: #E0FFFF;
+    background-color: #F6F4EC;
 }
 
 .markdown-body {
-    background-color: #F6F4EC;
     box-sizing: border-box;
     min-width: 200px;
     max-width: 980px;
     margin: 50px auto;
     padding: 50px;
 }
-.markdown-body p{
+.markdown-body p {
     text-indent: 2em;
 }
 .markdown-body h1{
     text-align: center;
-}
+ }
 
 
 @media (max-width: 767px) {
