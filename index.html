@@ -11,10 +11,20 @@
 
     <!-- css -->
     <link href="css/main-style.css" rel="stylesheet" type="text/css" />
+    <link href="css/github-markdown.css" rel="stylesheet" type="text/css" />
 
     <!-- javascript -->
     <script src="javascript/jquery-3.3.0.min.js"></script>
     <script src="javascript/bmob-min.js"></script>
+
+    <!-- plug-in -->
+    <script src="plug-in/marked/marked.min.js"></script>
+    <script src="plug-in/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+        });
+    </script>
 </head>
 
 <body>
@@ -37,23 +47,11 @@
     </div>
 
     <div id="middle" class="clearfix">
-        <div id="article">
-            <div class="article-list">
-                <a href="javascript:void(0);" onclick="alert('291817591')"> 收藏的网站 </a>
-                <p> 2018年04月23日 </p>
-                <p> 简介卡萨丁结婚法尽快喝非空集合咖啡机会反馈等数据库风刀霜剑金卡戴珊复健科
-                    简介卡萨丁结婚法尽快喝非空集合咖啡机会反馈等数据库风刀霜剑金卡戴珊复健科</p>
-            </div>
-            <div class="article-list">
-                <a href="javascript:void(0);" onclick="alert('291817591')"> 收藏的网站 </a>
-                <p> 2018年04月23日 </p>
-                <p> 简介 </p>
-            </div>
-        </div>
+        <div id="article"> loading </div>
 
         <div id="rightbar">
             <div class="rightbar-list">
-                <h2> 标签 </h2>
+                <h3> 标签 </h3>
                 <hr/>
                 <a href="javascript:void(0);" onclick="alert('291817591')"> QQ </a> &nbsp;
                 <a href="javascript:void(0);" onclick="alert('291817591')"> QQ </a> &nbsp;
@@ -61,7 +59,7 @@
                 <a href="javascript:void(0);" onclick="alert('291817591')"> QQ </a> &nbsp;
             </div>
             <div class="rightbar-list">
-                <h2> 归档 </h2>
+                <h3> 归档 </h3>
                 <hr/>
                 <a href="javascript:void(0);" onclick="alert('291817591')"> QQ </a> &nbsp;
                 <a href="javascript:void(0);" onclick="alert('291817591')"> QQ </a> &nbsp;
@@ -70,7 +68,7 @@
                 <p> 查看全部 </p>
             </div>
             <div class="rightbar-list">
-                <h2> 友情链接 </h2>
+                <h3> 友情链接 </h3>
                 <hr/>
                 <p><a href="https://lizebang.com"> 邦哥的网站 </a></p>
             </div>
@@ -86,5 +84,15 @@
 </div>
 
 </body>
+
+<script>
+    // 连接服务器
+    Bmob.initialize("df3de0c5024b1c1dd78fe5ba6cbddbb5", "5aa98c4263b103739a33b06fae7aac27");
+
+    // 载入数据
+    var data_article = Bmob.Object.extend("article");
+</script>
+<script src="javascript/load-article-list.js"></script>
+<script src="javascript/load-article.js"></script>
 
 </html>

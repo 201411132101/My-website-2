@@ -207,15 +207,6 @@
   line-height: inherit;
 }
 
-.markdown-body a {
-  color: #0366d6;
-  text-decoration: none;
-}
-
-.markdown-body a:hover {
-  text-decoration: underline;
-}
-
 .markdown-body strong {
   font-weight: 600;
 }
@@ -261,31 +252,26 @@
 }
 
 .markdown-body h1 {
-  font-size: 32px;
-  font-weight: 600;
-}
-
-.markdown-body h2 {
   font-size: 24px;
   font-weight: 600;
 }
 
-.markdown-body h3 {
+.markdown-body h2 {
   font-size: 20px;
   font-weight: 600;
 }
 
-.markdown-body h4 {
+.markdown-body h3 {
   font-size: 16px;
   font-weight: 600;
 }
 
-.markdown-body h5 {
+.markdown-body h4 {
   font-size: 14px;
   font-weight: 600;
 }
 
-.markdown-body h6 {
+.markdown-body h5 {
   font-size: 12px;
   font-weight: 600;
 }
@@ -491,31 +477,26 @@
 
 .markdown-body h1 {
   padding-bottom: 0.3em;
-  font-size: 2em;
+  font-size: 1.5em;
   border-bottom: 1px solid #eaecef;
 }
 
 .markdown-body h2 {
   padding-bottom: 0.3em;
-  font-size: 1.5em;
+  font-size: 1.25em;
   border-bottom: 1px solid #eaecef;
 }
 
 .markdown-body h3 {
-  font-size: 1.25em;
-}
-
-.markdown-body h4 {
   font-size: 1em;
 }
 
-.markdown-body h5 {
+.markdown-body h4 {
   font-size: 0.875em;
 }
 
-.markdown-body h6 {
+.markdown-body h5 {
   font-size: 0.85em;
-  color: #6a737d;
 }
 
 .markdown-body ul,
