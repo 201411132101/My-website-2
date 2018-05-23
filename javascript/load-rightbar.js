@@ -15,12 +15,12 @@ query_tags.find({
         for (var i = 0; i < results.length; i++) {
             var object = results[i];
 
-            str_tag += "<div style=\"float:left;\">" +
+            str_tag += "<div class=\"clearfix\"><div style=\"float:left;\">" +
                 "<a href=\"javascript:load_list('" + object.get("name") + "', 'NULL')\">" + object.get("name") + "</a>" +
                 "</div>";
             str_tag += "<div style=\"float:right;\">" +
                 object.get("num") + "篇" +
-                "</div>";
+                "</div></div>";
         }
 
         // 加载数据到 文章列表
@@ -50,12 +50,12 @@ query_time.find({
         for (var i = 0; i < results.length; i++) {
             var object = results[i];
 
-            str_time += "<div style=\"float:left;\">" +
+            str_time += "<div class=\"clearfix\"><div style=\"float:left;\">" +
                 "<a href=\"javascript:load_list('NULL', '" + object.get("time") + "')\">" + object.get("time") + "</a>" +
                 "</div>";
             str_time += "<div style=\"float:right;\">" +
                 object.get("num") + "篇" +
-                "</div>";
+                "</div></div>";
         }
 
         // 加载数据到 文章列表

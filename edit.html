@@ -15,19 +15,30 @@
     <script src="javascript/bmob-min.js"></script>
     <script src="javascript/marked.min.js"></script>
 
-
+    <!-- plug-in -->
+    <script src="plug-in/marked/marked.min.js"></script>
+    <script src="plug-in/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+        });
+    </script>
 </head>
 
 <body>
 <div id="content">
-        # Marked in browser\n\nRendered by **marked**.
-    </div>
+# Marked in browser
+
+Rendered by **marked**.
+
+$$a+b$$
+</div>
 </body>
 
 <script>
-    console.log(document.getElementById('content').innerHTML);
+    console.log(marked(document.getElementById('content').innerHTML));
     document.getElementById('content').innerHTML =
-        marked(document.getElementById('content').innerHTML) + marked('# Marked in browser\nRendered by **marked**.');
+        marked(document.getElementById('content').innerHTML);
 </script>
 
 </html>

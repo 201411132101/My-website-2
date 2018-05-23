@@ -18,6 +18,7 @@ function load_article(id) {
             // 加载数据到 文章
             $("#article").html(marked(str));
             $("#article").addClass("markdown-body");
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
         },
         error: function(object, error) {
             // 查询失败
