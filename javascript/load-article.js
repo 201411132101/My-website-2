@@ -1,4 +1,8 @@
-function load(id) {
+function load_article(id) {
+    // 载入数据
+    var data_article = Bmob.Object.extend("article");
+
+    // 加载表 article 中数据
     var query = new Bmob.Query(data_article);
 
     //查询单条数据，第一个参数是这条数据的objectId值

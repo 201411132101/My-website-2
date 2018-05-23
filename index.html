@@ -53,19 +53,13 @@
             <div class="rightbar-list">
                 <h3> 标签 </h3>
                 <hr/>
-                <a href="javascript:void(0);" onclick="alert('291817591')"> QQ </a> &nbsp;
-                <a href="javascript:void(0);" onclick="alert('291817591')"> QQ </a> &nbsp;
-                <a href="javascript:void(0);" onclick="alert('291817591')"> QQ </a> &nbsp;
-                <a href="javascript:void(0);" onclick="alert('291817591')"> QQ </a> &nbsp;
+                <div id="tags" class="clearfix"> loading </div>
             </div>
             <div class="rightbar-list">
                 <h3> 归档 </h3>
                 <hr/>
-                <a href="javascript:void(0);" onclick="alert('291817591')"> QQ </a> &nbsp;
-                <a href="javascript:void(0);" onclick="alert('291817591')"> QQ </a> &nbsp;
-                <a href="javascript:void(0);" onclick="alert('291817591')"> QQ </a> &nbsp;
-                <a href="javascript:void(0);" onclick="alert('291817591')"> QQ </a> &nbsp;
-                <p> 查看全部 </p>
+                <div id="time" class="clearfix"> loading </div>
+                <p> <a href="javascript:alert('291817591')"> 查看全部 </a> </p>
             </div>
             <div class="rightbar-list">
                 <h3> 友情链接 </h3>
@@ -77,8 +71,11 @@
 
     <div id="footer">
         <p>
-            联系方式: &nbsp; <a href="javascript:void(0);" onclick="alert('291817591')"> QQ </a>
-                     &nbsp; <a href="javascript:void(0);" onclick="alert('fox_bufan')"> 微信 </a>
+            联系方式: &nbsp; <a href="javascript:alert('291817591')"> QQ </a>
+                     &nbsp; <a href="javascript:alert('fox_bufan')"> 微信 </a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            数据存储: &nbsp; <a href="https://github.com/201411132101/201411132101.github.io"> github </a>
+                     &nbsp; <a href="https://www.bmob.cn"> bmob </a>
         </p>
     </div>
 </div>
@@ -88,11 +85,9 @@
 <script>
     // 连接服务器
     Bmob.initialize("df3de0c5024b1c1dd78fe5ba6cbddbb5", "5aa98c4263b103739a33b06fae7aac27");
-
-    // 载入数据
-    var data_article = Bmob.Object.extend("article");
 </script>
 <script src="javascript/load-article-list.js"></script>
 <script src="javascript/load-article.js"></script>
+<script src="javascript/load-rightbar.js"></script>
 
 </html>
