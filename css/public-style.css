@@ -1,0 +1,53 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-size: 15px;
+    background-color: #F6F4EC;
+    position: absolute;
+    text-align: justify;
+}
+
+/*             超链接             */
+a:link, a:visited, a:hover, a:active {
+    text-decoration:none;
+    color: hotpink;
+}
+
+/*             表格             */
+table {
+    border-spacing: 0;
+    border: solid #ccc 1px;
+    border-radius: 6px;
+}
+
+table td, th {
+    border-left: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    max-width: 500px;
+}
+table th {
+    background-image: -webkit-linear-gradient(top, #ebf3fc, #dce9f9);
+    border-top: none;
+    text-shadow: 0 1px 0 rgba(255,255,255,.5);
+}
+table td:first-child th:first-child {
+    border-left: none;
+}
+
+/* 圆角 */
+table th:first-child {
+    border-radius: 6px 0 0 0;
+}
+table th:last-child {
+    border-radius: 0 6px 0 0;
+}
+table tr:last-child td:first-child {
+    border-radius: 0 0 0 6px;
+}
+table tr:last-child td:last-child {
+    border-radius: 0 0 6px 0;
+}
