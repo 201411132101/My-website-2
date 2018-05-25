@@ -4,9 +4,11 @@ html, body {
     height: 100%;
     width: 100%;
     font-size: 15px;
+    font-family: Microsoft YaHei;
     background-color: #F6F4EC;
     position: absolute;
     text-align: justify;
+    word-break: break-all;
 }
 
 /*             超链接             */
