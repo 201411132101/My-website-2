@@ -18,8 +18,15 @@ input {
     outline: none;
 }
 
+#tags-list {
+    float: left;
+    margin-left: 10px;
+    line-height: 32px;
+}
+
 #upload {
     float: right;
+    line-height: 32px;
     font-size: 25px;
 }
 

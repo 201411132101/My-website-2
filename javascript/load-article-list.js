@@ -29,7 +29,7 @@ function load_list(tags, time) {
                 var object = results[i];
 
                 str += "<div class=\"article-list\">" +
-                    "<a href=\"javascript:load_article('" + object.id + "')\">" + object.get("title") + "</a>" +
+                    "<a href=\"?id=" + object.id + "\">" + object.get("title") + "</a>" +
                     "<p>" + object.createdAt.substr(0, 10) + "</p>" +
                     "<p>" + translate(object.get("content")) + "</p>" +
                     "</div>";

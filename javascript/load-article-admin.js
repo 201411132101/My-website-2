@@ -1,4 +1,4 @@
-function load_article(id) {
+function load_article_admin(id) {
     // 载入数据
     var data_article = Bmob.Object.extend("article");
 
@@ -10,7 +10,14 @@ function load_article(id) {
         success: function(object) {
             // 查询成功，调用get方法获取对应属性的值
 
-            var str = "# " + object.get("title") + "\n" +
+            var loc = location.href;
+            var index = loc.indexOf("=");
+
+            var str = "<p align=\"right\">" +
+                "<a href=\"edit.html?id=" + loc.substr(index+1) + "\">编辑</a> " +
+                "<a href=\"javascript:delete_article('" + loc.substr(index+1) + "')\">删除</a>" +
+                "</p>\n\n" +
+                "# " + object.get("title") + "\n" +
                 "<p align='center'>" + object.createdAt + "</p>\n\n" +
                 "------\n" +
                 object.get("content");

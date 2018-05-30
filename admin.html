@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -37,6 +37,9 @@
         </div>
         <div id="header-right">
             <div class="header-link">
+                <a href="https://bufan.xyz/edit.html"> 写博客 </a>
+            </div>
+            <div class="header-link">
                 <a href="https://bufan.xyz"> 首页 </a>
             </div>
             <div id="search">
@@ -72,10 +75,10 @@
     <div id="footer">
         <p>
             联系方式: &nbsp; <a href="javascript:alert('291817591')"> QQ </a>
-                     &nbsp; <a href="javascript:alert('fox_bufan')"> 微信 </a>
+            &nbsp; <a href="javascript:alert('fox_bufan')"> 微信 </a>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             数据存储: &nbsp; <a href="https://github.com/201411132101/201411132101.github.io"> github </a>
-                     &nbsp; <a href="https://www.bmob.cn"> bmob </a>
+            &nbsp; <a href="https://www.bmob.cn"> bmob </a>
         </p>
     </div>
 </div>
@@ -87,7 +90,7 @@
     Bmob.initialize("df3de0c5024b1c1dd78fe5ba6cbddbb5", "5aa98c4263b103739a33b06fae7aac27");
 </script>
 <script src="javascript/load-article-list.js"></script>
-<script src="javascript/load-article.js"></script>
+<script src="javascript/load-article-admin.js"></script>
 <script src="javascript/load-rightbar.js"></script>
 <script src="javascript/search.js"></script>
 
@@ -95,7 +98,7 @@
     var loc = location.href;
     var index = loc.indexOf("=");
     if (index != -1)
-        load_article(loc.substr(index+1));
+        load_article_admin(loc.substr(index+1));
 </script>
 
 <script>
@@ -106,6 +109,31 @@
     });
 </script>
 
+<script>
+    // 删除
+    function delete_article(id) {
+        // 载入数据
+        var data_article = Bmob.Object.extend("article");
 
+        // 加载表 article 中数据
+        var query = new Bmob.Query(data_article);
+        query.get(id, {
+            success: function(object) {
+                // The object was retrieved successfully.
+                object.destroy({
+                    success: function(deleteObject) {
+                        alert("delete success");
+                    },
+                    error: function(GameScoretest, error) {
+                        alert("delete fail");
+                    }
+                });
+            },
+            error: function(object, error) {
+                alert("query object fail");
+            }
+        });
+    }
+</script>
 
 </html>

@@ -28,7 +28,7 @@
     bottom: 10px;
 }
 
-#return {
+.header-link {
     position: relative;
     border: 1px solid #ccc;
     border-radius: 5px;

@@ -42,31 +42,134 @@
 
 <body>
     <div id="header">
-        <div style="float: left">
+        <div style="float:left">
             <input type="text" id="title" placeholder="title">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="text" id="z-index" placeholder="z-index">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <input type="text" id="tags" placeholder="tags">
-            &nbsp;&nbsp;
-            已有标签: loading
         </div>
+        <div id="tags-list"> 已有标签: loading </div>
         <div id="upload">
-            <a href="javascript:alert('开发中')"> 上传 </a>
+            <a href="javascript:upload()"> 上传 </a>
         </div>
     </div>
     <div id="md-editor">
         <div id="editor">
-            <textarea id="source-code" oninput="preview()" autofocus> 此处输入文本. $a+b$ </textarea>
+            <textarea id="source-code" oninput="preview()" autofocus> 此处输入文本. </textarea>
         </div>
         <div id="preview" class="markdown-body"></div>
     </div>
 </body>
 
 <script>
+    // 连接服务器
+    Bmob.initialize("df3de0c5024b1c1dd78fe5ba6cbddbb5", "5aa98c4263b103739a33b06fae7aac27");
+</script>
+<script>
+    // 载入标签
+
+    // 载入数据
+    var data_article = Bmob.Object.extend("article");
+
+    // 加载表 article 中数据
+    var query_article = new Bmob.Query(data_article);
+    query_article.limit(1000);
+
+    // 再按 tags 升序排列
+    query_article.ascending("tags");
+
+    // 查询所有数据
+    query_article.find({
+        success: function(results) {
+            var m_tags = new Map();
+
+            // 循环处理查询到的数据
+            for (var i = 0; i < results.length; i++) {
+                var object = results[i];
+                var name = object.get("tags");
+
+                if (m_tags.has(name))
+                    m_tags.set(name, m_tags.get(name) + 1);
+                else
+                    m_tags.set(name, 1);
+            }
+
+            var str_tags = "已有标签: ";
+            m_tags.forEach(function (value, key, map) {
+                    str_tags += key + " ";
+            });
+
+
+            // 加载数据到 文章列表
+            $("#tags-list").html(str_tags);
+        },
+        error: function(error) {
+            alert("查询失败: " + error.code + " " + error.message);
+        }
+    });
+
+</script>
+<script>
+    // 载入待修改文章数据
+
+    var loc = location.href;
+    var index = loc.indexOf("=");
+    if (index != -1) {
+        // 载入数据
+        var data_article = Bmob.Object.extend("article");
+
+        // 加载表 article 中数据
+        var query = new Bmob.Query(data_article);
+
+        //查询单条数据，第一个参数是这条数据的objectId值
+        query.get(loc.substr(index+1), {
+            success: function(object) {
+                // 查询成功，调用get方法获取对应属性的值
+                console.log(object);
+                $("#title").val(object.get("title"));
+                $("#z-index").val(object.get("z-index"));
+                $("#tags").val(object.get("tags"));
+                $("#source-code").val(object.get("content"));
+                preview();
+            },
+            error: function(object, error) {
+                // 查询失败
+            }
+        });
+    }
+</script>
+<script>
     preview();
 
     function preview() {
         $("#preview").html(marked($("#source-code").val()));
         MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+    }
+</script>
+<script>
+    // 上传数据
+
+    function upload() {
+        var id = "NULL";
+        var index = loc.indexOf("=");
+        if (index != -1)
+            id = loc.substr(index+1);
+
+        var title = $("#title").val();
+        var z_index = $("#z-index").val();
+        var tags = $("#tags").val();
+        var content = $("#source-code").val();
+
+        var mydate = new Date();
+        var time = mydate.getFullYear() + "-";
+        var month = mydate.getMonth() + 1;
+        if (month < 10)
+            time += "0" + month;
+        else
+            time += month;
+
+        upload_article(id, title, z_index, tags, time, content);
     }
 </script>
 
