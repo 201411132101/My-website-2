@@ -11,9 +11,9 @@
 
         object.save(null, {
             success: function(object) {
-                alert("create object success, object id:"+object.id);
+                alert("添加数据成功，返回的objectId是："+object.id);
             },
-            error: function() {
+            error: function(object, error) {
                  // 添加失败
                  alert('添加数据失败，返回错误信息：' + error.description);
             }
@@ -37,10 +37,10 @@
                 object.set("content", content);
 
                 object.save(null, {
-                    success: function() {
+                    success: function(object) {
                         alert("修改成功.");
                     },
-                    error: function() {
+                    error: function(object, error) {
                         // 修改失败
                         alert('修改数据失败，返回错误信息：' + error.description);
                     }
