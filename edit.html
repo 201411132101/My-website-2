@@ -169,8 +169,17 @@
             time += "0" + month;
         else
             time += month;
-
-        upload_article(id, title, z_index, tags, time, content);
+	
+	if (title == "")
+            alert("title 不能为空");
+        else if (z_index == "")
+            alert(z_index 不能为空");
+        else if (tags  == "")
+            alert("tags 不能为空");
+        else if (content == "")
+            alert("文本内容不能为空");
+        else
+            upload_article(id, title, z_index, tags, time, content);
     }
 </script>
 
