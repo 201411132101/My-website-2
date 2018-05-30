@@ -14,7 +14,8 @@
                 alert("create object success, object id:"+object.id);
             },
             error: function() {
-                alert("create object fail");
+                 // 添加失败
+                 alert('添加数据失败，返回错误信息：' + error.description);
             }
         });
     }
@@ -40,8 +41,8 @@
                         alert("修改成功.");
                     },
                     error: function() {
-                        // 添加失败
-                        alert('添加数据失败，返回错误信息：' + error.description);
+                        // 修改失败
+                        alert('修改数据失败，返回错误信息：' + error.description);
                     }
                 });
             },
