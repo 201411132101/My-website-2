@@ -1,4 +1,4 @@
-function upload_article(id, title, z_index, tags, time, content) {
+﻿function upload_article(id, title, z_index, tags, time, content) {
     if (id == "NULL") {
         var data_article = Bmob.Object.extend("article");
         var object = new data_article();
@@ -40,7 +40,8 @@ function upload_article(id, title, z_index, tags, time, content) {
                         alert("修改成功.");
                     },
                     error: function() {
-                        alert("修改失败");
+                        // 添加失败
+                        alert('添加数据失败，返回错误信息：' + error.description);
                     }
                 });
             },
