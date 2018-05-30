@@ -4,7 +4,7 @@
         var object = new data_article();
 
         object.set("title", title);
-        object.set("z-index", z_index);
+        object.set("z-index", parseInt(z_index));
         object.set("tags", tags);
         object.set("time", time);
         object.set("content", content);
@@ -31,7 +31,7 @@
             success: function(object) {
                 // 查询成功，修改数据
                 object.set("title", title);
-                object.set("z-index", z_index);
+                object.set("z-index", parseInt(z_index));
                 object.set("tags", tags);
                 object.set("time", time);
                 object.set("content", content);
