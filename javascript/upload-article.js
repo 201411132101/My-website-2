@@ -12,6 +12,7 @@
         object.save(null, {
             success: function(object) {
                 alert("添加数据成功，返回的objectId是："+object.id);
+                window.location.href = "https://bufan.xyz/admin.html?id=" + object.id;
             },
             error: function(object, error) {
                  // 添加失败
@@ -39,6 +40,7 @@
                 object.save(null, {
                     success: function(object) {
                         alert("修改成功.");
+                        window.location.href = "https://bufan.xyz/admin.html?id=" + object.id;
                     },
                     error: function(object, error) {
                         // 修改失败
