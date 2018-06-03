@@ -78,7 +78,7 @@ function load_time() {
             var str_time = "";
             m_time.forEach(function (value, key, map) {
                 str_time += "<div class=\"clearfix\"><div style=\"float:left;\">" +
-                    "<a href=\"javascript:load_list('NULL', " + key + ")\">" + key + "</a>" +
+                    "<a href=\"javascript:load_list('NULL', '" + key + "')\">" + key + "</a>" +
                     "</div>";
                 str_time += "<div style=\"float:right;\">" +
                     value + "篇" +
