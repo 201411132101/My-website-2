@@ -67,7 +67,7 @@ function load_time() {
             // 循环处理查询到的数据
             for (var i = 0; i < results.length; i++) {
                 var object = results[i];
-                var name = object.get("time");
+                var name = object.createdAt.substr(0, 7);
 
                 if (m_time.has(name))
                     m_time.set(name, m_time.get(name) + 1);
