@@ -37,19 +37,19 @@ input {
 #editor {
     float: left;
     width: 45%;
-    height: 96%;
-    padding: 2% 2.5%;
+    height: 100%;
+    padding: 0% 2.5%;
     border-right: 1px solid #c8cccf;
 }
 #source-code {
     height: 100%;
     width: 100%;
     border: none;
+    padding: 2% 0%;
     background: transparent;
     outline: none;
     font-size: 15px;
     font-family: Microsoft YaHei;
-    padding-bottom: 100px;
 }
 
 #preview {
