@@ -64,8 +64,3 @@ input {
 #preview::-webkit-scrollbar{
     display:none;
 }
-
-
-.MathJax {
-    outline:0;
-}
