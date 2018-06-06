@@ -42,7 +42,7 @@ input {
 }
 #source-code {
     height: 70%;
-    width: 100%;
+    width: 90%;
     border: none;
     padding: 5% 5% 30% 5%;
     background: transparent;
@@ -56,7 +56,7 @@ input {
 #preview {
     width: 44.5%;
     height: 70%;
-    padding: 5% 2.5% 30% 2.5%;
+    padding: 2% 2.5% 10% 2.5%;
     overflow: scroll;
 }
 
