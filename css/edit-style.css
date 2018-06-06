@@ -54,8 +54,8 @@ input {
 
 #preview {
     width: 44.5%;
-    height: 96%;
-    padding: 2% 2.5%;
+    height: 70%;
+    padding: 5% 2.5% 30% 2.5%;
     overflow: scroll;
 }
 
