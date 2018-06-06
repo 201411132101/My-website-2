@@ -56,8 +56,8 @@ function load_time() {
     var query_article = new Bmob.Query(data_article);
     query_article.limit(1000);
 
-    // 再按 tags 降序排列
-    query_article.descending("time");
+    // 再按 time 降序排列
+    query_article.descending(createdAt);
 
     // 查询所有数据
     query_article.find({
