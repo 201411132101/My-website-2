@@ -36,7 +36,7 @@ input {
 }
 #editor {
     float: left;
-    width: 45%;
+    width: 50%;
     height: 100%;
     border-right: 1px solid #c8cccf;
 }
@@ -44,7 +44,7 @@ input {
     height: 70%;
     width: 100%;
     border: none;
-    padding: 5% 2.5% 30% 2.5%;
+    padding: 5% 5% 30% 5%;
     background: transparent;
     outline: none;
     font-size: 15px;
