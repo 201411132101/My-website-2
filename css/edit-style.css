@@ -48,6 +48,7 @@ input {
     background: transparent;
     outline: none;
     resize: none;
+    text-align: justify;
     font-size: 16px;
     font-family: Microsoft YaHei;
 }
