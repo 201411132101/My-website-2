@@ -1,5 +1,3 @@
-load_list("NULL", "NULL");
-
 function load_list(tags, time) {
     // 载入数据
     var data_article = Bmob.Object.extend("article");
