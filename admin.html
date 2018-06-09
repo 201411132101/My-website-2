@@ -109,10 +109,14 @@
 <script>
     var loc = location.href;
     var index = loc.indexOf("=");
-    if (index != -1)
+    if (index != -1) {
         load_article_admin(loc.substr(index+1));
-    else
+        console.log(else, index);
+    }
+    else {
+        console.log(else, index);
         load_list("NULL", "NULL");
+    }
 </script>
 
 <script>
