@@ -108,6 +108,8 @@
     var index = loc.indexOf("=");
     if (index != -1)
         load_article(loc.substr(index+1));
+    else
+        load_list("NULL", "NULL");
 </script>
 
 <script>
