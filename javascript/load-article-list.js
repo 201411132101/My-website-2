@@ -9,14 +9,10 @@ function load_list(tags, time) {
     query_article.descending("z-index");
     // 再按 添加时间 降序排列
     query_article.descending("createdAt");
-
+    
     // 按 tags 筛选
     if (tags != "NULL")
         query_article.equalTo("tags", tags);
-
-    // 按 time 筛选
-    if (time != "NULL")
-        query_article.equalTo("time", time);
 
     // 查询所有数据
     var str = "";
@@ -25,6 +21,10 @@ function load_list(tags, time) {
             // 循环处理查询到的数据
             for (var i = 0; i < results.length; i++) {
                 var object = results[i];
+
+                // 按 time 筛选
+                if (object.createdAt.substr(0, 7) != time)
+                    continue;
 
                 str += "<div class=\"article-list\">" +
                     "<a href=\"?id=" + object.id + "\">" + object.get("title") + "</a>" +
