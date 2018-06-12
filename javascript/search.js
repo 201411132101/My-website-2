@@ -20,18 +20,18 @@ function search() {
             // 循环处理查询到的数据
             for (var i = 0; i < results.length; i++) {
                 var object = results[i];
-                var temp_str = object.get("title") + object.get("content");
+                var temp_str = object.get("title");
                 if (temp_str.match(keyword)){
                     str += "<div class=\"article-list\">" +
                         "<a href=\"?id=" + object.id + "\">" + object.get("title") + "</a>" +
-                        "<p>" + object.createdAt.substr(0, 10) + "</p>" +
+                        "<p>" + object.createdAt + "</p>" +
                         "<p>" + translate(object.get("content")) + "</p>" +
                         "</div>";
                 }
             }
 
             if (str == "")
-                str = "<p>查询 " + keyword + " 未得到到相关结果.</p>";
+                str = "<p>查询 \"" + keyword + "\" 未得到到相关结果.</p>";
 
             // 加载数据到 文章列表
             $("#article").html(str);
