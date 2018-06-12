@@ -11,7 +11,7 @@ function load_article(id) {
             // 查询成功，调用get方法获取对应属性的值
 
             var str = "# " + object.get("title") + "\n" +
-                "<p align='center'>" + object.createdAt + "</p>\n\n" +
+                "<p align='center'>" + object.updatedAt + "</p>\n\n" +
                 "------\n" +
                 object.get("content");
 
