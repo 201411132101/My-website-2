@@ -7,8 +7,8 @@ function load_list(tags, time) {
 
     // 先按 置顶程度 降序排列
     query_article.descending("z-index");
-    // 再按 添加时间 降序排列
-    query_article.descending("createdAt");
+    // 再按 修改时间 降序排列
+    query_article.descending("updatedAt");
     
     // 按 tags 筛选
     if (tags != "NULL")
@@ -23,12 +23,12 @@ function load_list(tags, time) {
                 var object = results[i];
 
                 // 按 time 筛选
-                if (time != "NULL" && time != object.createdAt.substr(0, 7))
+                if (time != "NULL" && time != object.updatedAt.substr(0, 7))
                     continue;
 
                 str += "<div class=\"article-list\">" +
                     "<a href=\"?id=" + object.id + "\">" + object.get("title") + "</a>" +
-                    "<p>" + object.createdAt + "</p>" +
+                    "<p>" + object.updatedAt + "</p>" +
                     "<p>" + translate(object.get("content")) + "</p>" +
                     "</div>";
             }
