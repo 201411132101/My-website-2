@@ -1,4 +1,4 @@
-﻿load_tags();
+load_tags();
 load_time();
 
 function load_tags() {
@@ -57,7 +57,7 @@ function load_time() {
     query_article.limit(1000);
 
     // 再按 time 降序排列
-    query_article.descending("createdAt");
+    query_article.descending("updatedAt");
 
     // 查询所有数据
     query_article.find({
@@ -67,7 +67,7 @@ function load_time() {
             // 循环处理查询到的数据
             for (var i = 0; i < results.length; i++) {
                 var object = results[i];
-                var name = object.createdAt.substr(0, 7);
+                var name = object.updatedAt.substr(0, 7);
 
                 if (m_time.has(name))
                     m_time.set(name, m_time.get(name) + 1);
