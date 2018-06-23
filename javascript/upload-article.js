@@ -1,4 +1,4 @@
-﻿function upload_article(id, title, z_index, tags, time, content) {
+function upload_article(id, title, z_index, tags, content) {
     if (id == "NULL") {
         var data_article = Bmob.Object.extend("article");
         var object = new data_article();
@@ -6,7 +6,6 @@
         object.set("title", title);
         object.set("z-index", parseInt(z_index));
         object.set("tags", tags);
-        object.set("time", time);
         object.set("content", content);
 
         object.save(null, {
@@ -34,7 +33,6 @@
                 object.set("title", title);
                 object.set("z-index", parseInt(z_index));
                 object.set("tags", tags);
-                object.set("time", time);
                 object.set("content", content);
 
                 object.save(null, {
