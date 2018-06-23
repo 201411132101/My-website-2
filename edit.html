@@ -140,8 +140,6 @@
     }
 </script>
 <script>
-    preview();
-
     function preview() {
         $("#preview").html(marked($("#source-code").val()));
         MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
@@ -162,14 +160,6 @@
         var tags = $("#tags").val();
         var content = $("#source-code").val();
 
-        var mydate = new Date();
-        var time = mydate.getFullYear() + "-";
-        var month = mydate.getMonth() + 1;
-        if (month < 10)
-            time += "0" + month;
-        else
-            time += month;
-
         if (title == "")
             alert("title 不能为空");
         else if (isNaN(z_index))
@@ -179,7 +169,7 @@
         else if (content == "")
             alert("文本内容不能为空");
         else
-            upload_article(id, title, z_index, tags, time, content);
+            upload_article(id, title, z_index, tags, content);
     }
 </script>
 
