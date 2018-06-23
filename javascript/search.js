@@ -24,7 +24,9 @@ function search() {
                 if (temp_str.match(keyword)){
                     str += "<div class=\"article-list\">" +
                         "<a href=\"?id=" + object.id + "\">" + object.get("title") + "</a>" +
-                        "<p>" + "updatedAt: " + object.updatedAt + " createdAt: " + object.createdAt + "</p>" +
+                        "<p>" + "updatedAt: " + object.updatedAt + 
+                        "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
+                        "createdAt: " + object.createdAt + "</p>" +
                         "<p>" + translate(object.get("content")) + "</p>" +
                         "</div>";
                 }
