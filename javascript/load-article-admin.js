@@ -18,8 +18,8 @@ function load_article_admin(id) {
                 "<a href=\"javascript:delete_article('" + loc.substr(index+1) + "')\">删除</a>" +
                 "</p>\n\n" +
                 "# " + object.get("title") + "\n" +
-                "<p align='center'>" + "updatedAt: " + object.updatedAt + "</p>" +
-                "<p align='center'>" + "createdAt: " + object.createdAt + "</p>\n\n" +
+                "<p align='center'>" + "最后更新: " + object.updatedAt + "</p>" +
+                "<p align='center'>" + "发布时间: " + object.createdAt + "</p>\n\n" +
                 "------\n" +
                 object.get("content");
 
