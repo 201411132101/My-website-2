@@ -140,6 +140,7 @@
     }
 </script>
 <script>
+    preview();
     function preview() {
         $("#preview").html(marked($("#source-code").val()));
         MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
