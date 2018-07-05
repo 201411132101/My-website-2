@@ -23,7 +23,7 @@ function load_list(tags, time) {
                 var object = results[i];
 
                 // 按 time 筛选
-                if (time != "NULL" && time != object.updatedAt.substr(0, 7))
+                if (time != "NULL" && time != object.createdAt.substr(0, 7))
                     continue;
 
                 str += "<div class=\"article-list\">" +
