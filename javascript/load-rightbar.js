@@ -57,7 +57,7 @@ function load_time() {
     query_article.limit(1000);
 
     // 再按 time 降序排列
-    query_article.descending("updatedAt");
+    query_article.descending("createdAt");
 
     // 查询所有数据
     query_article.find({
