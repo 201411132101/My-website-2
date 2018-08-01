@@ -15,7 +15,7 @@ function load_article_admin(id) {
 
             var str = "<p align=\"right\">" +
                 "<a href=\"edit.html?id=" + loc.substr(index+1) + "\">编辑</a> " +
-                "<a href=\"javascript:delete_article('" + loc.substr(index+1) + "')\">删除</a>" +
+                "<a href=\"javascript:delete_article('" + loc.substr(index+1) + "')\" onclick=\"return confirm('请确认删除');\">删除</a>" +
                 "</p>\n\n" +
                 "# " + object.get("title") + "\n" +
                 "<p align='center'>" + "最后更新: " + object.updatedAt + "</p>" +
