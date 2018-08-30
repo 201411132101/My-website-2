@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <title> BuFan 的博客 </title>
+
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <!-- css -->
+    <link href="css/public-style.css" rel="stylesheet" type="text/css" />
+    <link href="css/main-style.css" rel="stylesheet" type="text/css" />
+    <link href="css/github-markdown.css" rel="stylesheet" type="text/css" />
+
+    <!-- javascript -->
+    <script src="javascript/jquery-3.3.0.min.js"></script>
+    <script src="javascript/bmob-min.js"></script>
+
+    <!-- plug-in -->
+    <script src="plug-in/marked/marked.min.js"></script>
+    <script src="plug-in/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            showProcessingMessages: false,
+            messageStyle: "none",
+            extensions: ["tex2jax.js"],
+            jax: ["input/TeX", "output/HTML-CSS"],
+            tex2jax: {
+                inlineMath:  [ ["$", "$"] ],
+                displayMath: [ ["$$","$$"] ],
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code','a'],
+                ignoreClass:"comment-content"
+            },
+            "HTML-CSS": {
+                availableFonts: ["STIX","TeX"],
+                showMathMenu: false
+            }
+        });  
+    </script>
+</head>
+
+<body>
+
+<div id="container">
+    <div id="header" onselectstart="return false;">
+        <div id="header-left">
+            <h1 style="cursor:default"> bufan 的博客 </h1>
+            <p style="cursor:default"> 一个平凡的人, 做着平凡的事, 过着平凡的生活. </p>
+        </div>
+        <div id="header-right">
+            <div class="header-link">
+                <a href="https://bufan.xyz/edit.html"> 写博客 </a>
+            </div>
+            <div class="header-link">
+                <a href="https://bufan.xyz/admin.html"> 首页 </a>
+            </div>
+            <div id="search">
+                <input type="text" id="search-input" placeholder="keyword" autocomplete="off">
+                <button type="text" id="search-button" onclick="javascript:search()"></button>
+            </div>
+        </div>
+    </div>
+
+    <div id="middle" class="clearfix">
+        <div id="article"> loading </div>
+
+        <div id="rightbar">
+            <div class="rightbar-list">
+                <h3> 标签 </h3>
+                <hr/>
+                <div id="tags" class="clearfix"> loading </div>
+            </div>
+            <div class="rightbar-list">
+                <h3> 归档 </h3>
+                <hr/>
+                <div id="time" class="clearfix"> loading </div>
+            </div>
+            <div class="rightbar-list">
+                <h3> 友情链接 </h3>
+                <hr/>
+                <div class="clearfix">
+                    <a href="https://lizebang.com"> 邦哥 </a>
+                </div>
+                <div class="clearfix">
+                    <a href="https://lizhechen.com"> lzcwr </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer">
+        <p>
+            联系方式: &nbsp; <a href="javascript:alert('291817591')"> QQ </a>
+            &nbsp; <a href="javascript:alert('fox_bufan')"> 微信 </a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            数据存储: &nbsp; <a href="https://github.com/201411132101/201411132101.github.io"> github </a>
+            &nbsp; <a href="https://www.bmob.cn"> bmob </a>
+        </p>
+    </div>
+</div>
+
+</body>
+
+<script>
+    // 连接服务器
+    Bmob.initialize("df3de0c5024b1c1dd78fe5ba6cbddbb5", "5aa98c4263b103739a33b06fae7aac27");
+</script>
+<script src="javascript/load-article-list.js"></script>
+<script src="javascript/load-article-admin.js"></script>
+<script src="javascript/load-rightbar.js"></script>
+<script src="javascript/search.js"></script>
+
+<script>
+    var loc = location.href;
+    var index = loc.indexOf("=");
+    if (index != -1) {
+        load_article_admin(loc.substr(index+1));
+        console.log('if', index);
+    }
+    else {
+        console.log('else', index);
+        load_list("NULL", "NULL");
+    }
+</script>
+
+<script>
+    //回车事件
+    $("#search-input").bind('keydown', function(event){
+        if (event.keyCode == "13")
+            $("#search-button").click();
+    });
+</script>
+
+<script>
+    // 删除
+    function delete_article(id) {
+        // 载入数据
+        var data_article = Bmob.Object.extend("article");
+
+        // 加载表 article 中数据
+        var query = new Bmob.Query(data_article);
+        query.get(id, {
+            success: function(object) {
+                // The object was retrieved successfully.
+                object.destroy({
+                    success: function(deleteObject) {
+                        alert("delete success");
+                        window.location.href = "https://bufan.xyz/admin.html";
+                    },
+                    error: function(GameScoretest, error) {
+                        alert("delete fail");
+                    }
+                });
+            },
+            error: function(object, error) {
+                alert("query object fail");
+            }
+        });
+    }
+</script>
+
+</html>
