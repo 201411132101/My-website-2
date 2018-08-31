@@ -1,4 +1,4 @@
-function load_list(tags, time) {
+function load_list(tags, time, page) {
     // 载入数据
     var data_article = Bmob.Object.extend("article");
 
@@ -16,6 +16,7 @@ function load_list(tags, time) {
 
     // 查询所有数据
     var str = "";
+    var cnt = 0;
     query_article.find({
         success: function(results) {
             // 循环处理查询到的数据
@@ -25,7 +26,14 @@ function load_list(tags, time) {
                 // 按 time 筛选
                 if (time != "NULL" && time != object.createdAt.substr(0, 7))
                     continue;
-
+                
+                cnt += 1;
+                if (cnt <= 10*page-10)
+                    continue;
+                if (cnt > 10*page)
+                    continue;
+                
+                // 加载文章链接
                 str += "<div class=\"article-list\">" +
                     "<a href=\"?id=" + object.id + "\">" + object.get("title") + "</a>" +
                     "<p>" + "最后更新: " + object.updatedAt + 
@@ -34,6 +42,20 @@ function load_list(tags, time) {
                     "<p>" + translate(object.get("content")) + "</p>" +
                     "</div>";
             }
+            
+            // 加载文章超链接? (不知道怎么称呼)
+            str += "<div align=\"right\">";
+            
+            if (cnt <= 100) {
+                for (var i = 1; 10*i < cnt; i++)
+                    str += "<a href=\"javascript:load_list('" + tags + "', '" + time + "', '" + i + "')\">" + i + "</a>"
+            }
+            else {
+                for (var i = Math.max(page-4,1); i <= Math.max(page+5,10); i++)
+                    str += "<a href=\"javascript:load_list('" + tags + "', '" + time + "', '" + i + "')\">" + i + "</a>"
+            }
+            
+            str += "</div>";
 
             // 加载数据到 文章列表
             $("#article").html(str);
