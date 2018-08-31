@@ -47,7 +47,7 @@ function load_list(tags, time, page) {
             str += "<div align=\"right\">";
             
             if (cnt <= 100) {
-                for (var i = 1; 10*i < cnt; i++)
+                for (var i = 1; 10*i-10 < cnt; i++)
                     str += "<div class=\"header-link\">" +
                         "<a href=\"javascript:load_list('" + tags + "', '" + time + "', " + i + ")\">" + i + "</a>" +
                         "</div>";
