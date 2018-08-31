@@ -43,7 +43,7 @@ function load_list(tags, time, page) {
                     "</div>";
             }
             
-            // 加载文章超链接? (不知道怎么称呼)
+            // 加载文章分页链接
             str += "<div align=\"right\">";
             
             if (cnt <= 100) {
