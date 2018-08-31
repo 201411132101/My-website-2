@@ -31,7 +31,7 @@ function load_tags() {
             var str_tags = "";
             m_tags.forEach(function (value, key, map) {
                 str_tags += "<div class=\"clearfix\"><div style=\"float:left;\">" +
-                    "<a href=\"javascript:load_list('" + key + "', 'NULL')\">" + key + "</a>" +
+                    "<a href=\"javascript:load_list('" + key + "', 'NULL', 1)\">" + key + "</a>" +
                     "</div>";
                 str_tags += "<div style=\"float:right;\">" +
                     value + "篇" +
@@ -78,7 +78,7 @@ function load_time() {
             var str_time = "";
             m_time.forEach(function (value, key, map) {
                 str_time += "<div class=\"clearfix\"><div style=\"float:left;\">" +
-                    "<a href=\"javascript:load_list('NULL', '" + key + "')\">" + key + "</a>" +
+                    "<a href=\"javascript:load_list('NULL', '" + key + "', 1)\">" + key + "</a>" +
                     "</div>";
                 str_time += "<div style=\"float:right;\">" +
                     value + "篇" +
