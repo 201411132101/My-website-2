@@ -34,7 +34,7 @@ function load_tags() {
                     "<a href=\"javascript:load_list('" + key + "', 'NULL', 1)\">" + key + "</a>" +
                     "</div>";
                 str_tags += "<div style=\"float:right;\">" +
-                    value + "篇" +
+                    value + " 篇" +
                     "</div></div>";
             });
 
@@ -81,7 +81,7 @@ function load_time() {
                     "<a href=\"javascript:load_list('NULL', '" + key + "', 1)\">" + key + "</a>" +
                     "</div>";
                 str_time += "<div style=\"float:right;\">" +
-                    value + "篇" +
+                    value + " 篇" +
                     "</div></div>";
             });
 
