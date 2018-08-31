@@ -48,11 +48,11 @@ function load_list(tags, time, page) {
             
             if (cnt <= 100) {
                 for (var i = 1; 10*i < cnt; i++)
-                    str += "<a href=\"javascript:load_list('" + tags + "', '" + time + "', '" + i + "')\">" + i + "</a>"
+                    str += "<a href=\"javascript:load_list('" + tags + "', '" + time + "', " + i + ")\">" + i + "</a>"
             }
             else {
                 for (var i = Math.max(page-4,1); i <= Math.max(page+5,10); i++)
-                    str += "<a href=\"javascript:load_list('" + tags + "', '" + time + "', '" + i + "')\">" + i + "</a>"
+                    str += "<a href=\"javascript:load_list('" + tags + "', '" + time + "', " + i + ")\">" + i + "</a>"
             }
             
             str += "</div>";
