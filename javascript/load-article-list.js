@@ -39,7 +39,6 @@ function load_list(tags, time, page) {
                     "<p>" + "最后更新: " + object.updatedAt + 
                     "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
                     "发布时间: " + object.createdAt + "</p>" +
-                    "<p>" + translate(object.get("content")) + "</p>" +
                     "</div>";
             }
             
